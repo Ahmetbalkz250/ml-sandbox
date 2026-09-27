@@ -34,26 +34,26 @@ log_model.fit(X_train, y_train)
 
 y_pred = log_model.predict(X_test)
 
-yeni_musteri_gibi_dusun = pd.DataFrame({
+new_Data_Input = pd.DataFrame({
     'day': [15, 20],
-    'month': [8, 1],             # Ağustos (Sıcak) vs Ocak (Soğuk)
+    'month': [8, 1],             
     'year': [2012, 2012],
-    'Temperature': [38.0, 12.0], # 38 derece vs 12 derece
-    'RH': [30.0, 85.0],          # Nem düşük vs Nem çok yüksek
-    'Ws': [18.0, 20.0],          # Rüzgar
-    'Rain': [0.0, 12.5],         # Yağmur hiç yok vs Sağanak yağış
-    'FFMC': [92.5, 40.2],        # Kuru toprak endeksi tavan vs Dipte
+    'Temperature': [38.0, 12.0],
+    'RH': [30.0, 85.0],          
+    'Ws': [18.0, 20.0],          
+    'Rain': [0.0, 12.5],        
+    'FFMC': [92.5, 40.2],        
     'DMC': [50.1, 5.1],
     'DC': [120.5, 15.2],
     'ISI': [12.0, 0.4],
     'BUI': [45.5, 4.5],
-    'FWI': [25.5, 0.1]           # Yangın riski endeksi yüksek vs Yok gibi bir şey
+    'FWI': [25.5, 0.1]          
 })
 
-X_new = std_scaler.transform(yeni_musteri_gibi_dusun)
+X_new = std_scaler.transform(new_Data_Input)
 
 y_new_pred = log_model.predict(X_new)
 
-print("\n--- TEST SONUÇLARI ---")
-print(f"1. Senaryo (Ağustos Cehennemi): {'Yangın Çıkar (1) 🔥' if y_new_pred[0] == 1 else 'Sorun Yok (0) 🌲'}")
-print(f"2. Senaryo (Ocak Yağmuru): {'Yangın Çıkar (1) 🔥' if y_new_pred[1] == 1 else 'Sorun Yok (0) 🌲'}")
+print("\n--- RESULTS OF THE PREDICTION ---")
+print(f"1. Scenario (August Inferno): {'A fire breaks out; there might not be an overfitting problem..(1) 🔥' if y_new_pred[0] == 1 else 'No problem, It could be overfitting. (0) 🌲'}")
+print(f"2. Scenario (January Cold): {'A fire breaks out; there might not be an overfitting problem..(1) 🔥' if y_new_pred[1] == 1 else 'No problem, It could be overfitting. (0) 🌲'}")

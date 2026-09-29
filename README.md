@@ -12,3 +12,5 @@ To ensure model reliability and prevent data leakage, the following preprocessin
 ## Model & Performance
 The classification task was powered by a **Logistic Regression** model.
 * **Test Score:** The model achieved a highly robust **95% Accuracy** on the unseen test dataset.
+## Note
+This repository was created while I was devoloping my skills in the field of Machine Learning...

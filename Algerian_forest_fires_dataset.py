@@ -11,7 +11,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
 
-df = pd.read_csv(r"C:\Users\excalıbur\Desktop\Value for ML\4-Algerian_forest_fires_dataset.csv")
+df = pd.read_csv(r"Algerian_forest_fires_dataset.csv")
 df =df.dropna().reset_index(drop=True)
 df.columns = df.columns.str.strip()
 df['Classes'] = df['Classes'].str.strip().map({'fire': 1, 'not fire': 0})
